@@ -8,7 +8,9 @@ dat$Date <- as.Date(dat$Date, format = "%d/%m/%Y")
 dat1 <- subset(dat, (dat$Date >= "2007-02-01" & dat$Date <= "2007-02-02"))
 
 # Create plot
+png(filename = "plot3.png", width = 480, height = 480)
 plot(dat1$Sub_metering_1, type="l", xlab="", ylab = "Energy sub metering")
-points(dat1$Sub_metering_2, col="red", type = "l")
-points(dat1$Sub_metering_3, col="blue", type = "l")
-legend(1800,39, legend=colnames(dat1)[7:9], col=c("black","red", "blue"), lty=1, bty="n", cex=0.8)
+lines(dat1$Sub_metering_2, col="red")
+lines(dat1$Sub_metering_3, col="blue")
+legend("topright", legend=colnames(dat1)[7:9], col=c("black","red", "blue"), lty=1)
+dev.off()

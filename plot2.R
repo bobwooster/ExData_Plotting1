@@ -8,4 +8,6 @@ dat$Date <- as.Date(dat$Date, format = "%d/%m/%Y")
 dat1 <- subset(dat, (dat$Date >= "2007-02-01" & dat$Date <= "2007-02-02"))
 
 # Create plot
-plot(dat1$Time, dat1$Global_active_power, type = "l", ylab="Global Active Power (kilowatts)", xlab ="")
+png(filename = "plot2.png", width = 480, height = 480)
+plot(dat1$Time, dat1$Global_active_power, type = "l", ylab="Global Active Power (kilowatts)", xlab = NA)
+dev.off()
